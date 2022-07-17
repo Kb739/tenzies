@@ -13,6 +13,9 @@ export default function App() {
         return arr;
     }
 
+    function diceRoll() {
+        setDice(allNewDice)
+    }
     const dice = allDice.map(data => <Die key={data.id} value={data.value} />)
     return (
         <div>
@@ -20,6 +23,7 @@ export default function App() {
                 <div className="dice-container">
                     {dice}
                 </div>
+                <button className="roll" onClick={diceRoll}>Roll</button>
             </main>
 
         </div>
