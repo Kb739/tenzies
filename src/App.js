@@ -2,7 +2,7 @@ import React from "react";
 import Die from './components/Die';
 
 export default function App() {
-
+    const [allDice, setDice] = React.useState(allNewDice)
     function allNewDice() {
         const arr = []
         for (let i = 0; i < 10; i++)
@@ -12,7 +12,8 @@ export default function App() {
             })
         return arr;
     }
-    const dice = allNewDice().map(obj => <Die key={obj.id} value={obj.value} />)
+
+    const dice = allDice.map(data => <Die key={data.id} value={data.value} />)
     return (
         <div>
             <main>
