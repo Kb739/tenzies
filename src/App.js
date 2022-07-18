@@ -1,5 +1,6 @@
 import React from "react";
 import Die from './components/Die';
+import Confetti from 'react-confetti'
 
 export default function App() {
     const [allDice, setDice] = React.useState(allNewDice)
@@ -54,6 +55,7 @@ export default function App() {
 
     return (
         <div>
+            {tenzies && <Confetti recycle={false} />}
             <main>
                 <div className="dice-container">
                     {dice}
