@@ -16,9 +16,17 @@ export default function App() {
         return arr;
     }
 
+    function reset() {
+        setTenzies(false)
+        setDice(allNewDice)
+    }
+
     function rollDice() {
-        setDice(prevAllDice => prevAllDice.map(die => !die.isHeld ?
-            { ...die, value: Math.ceil(Math.random() * 6) } : die))
+        if (tenzies)
+            reset()
+        else
+            setDice(prevAllDice => prevAllDice.map(die => !die.isHeld ?
+                { ...die, value: Math.ceil(Math.random() * 6) } : die))
     }
 
 
@@ -50,7 +58,9 @@ export default function App() {
                 <div className="dice-container">
                     {dice}
                 </div>
-                <button className="roll" onClick={rollDice}>Roll</button>
+                <button className="roll" onClick={rollDice}>
+                    {tenzies ? "NewGame" : "Roll"}
+                </button>
             </main>
 
         </div>
